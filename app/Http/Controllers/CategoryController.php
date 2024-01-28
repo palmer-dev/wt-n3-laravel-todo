@@ -40,7 +40,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $tasks = Task::whereHas('categories', function ($query) use ($category) {
+        $tasks = Task::where("user_id", Auth::user()->id)->whereHas('categories', function ($query) use ($category) {
             $query->where('id', $category->id);
         })->get();
 
