@@ -22,6 +22,39 @@ npm i
 
 ### Étape 3
 
+Paraméter le [.env](.env) du projet. S'il n'est pas présent, il suffit de le créer avec le même contenu que
+le [.env.example](.env.example).
+
+Première partie, il faut générer la clé d'application laravel.
+
+```shell
+php artisan key:generate
+```
+
+Ensuite, il faut préciser que la base de données que doit utiliser laravel sera une SQLlite (pour des raisons de
+simplicité de déploiement en local).
+
+Pour cela, il faut changer les lignes suivantes dans le fichier [.env](.env)
+
+Changer :
+
+```shell
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+En :
+
+```shell
+DB_CONNECTION=sqlite
+```
+
+### Étape 4
+
 Générer la base de données et les données de test
 
 ```shell
@@ -77,7 +110,8 @@ Pour naviguer dans le calendrier, il suffit de changer le mois et l'année, l'ac
 
 ### Consulter les tâches
 
-Il est possible de consulter les tâches depuis la page [tâche](http://localhost:8000/tasks), mais également depuis la page [catégorie](http://localhost:8000/categories) en cliquant
+Il est possible de consulter les tâches depuis la page [tâche](http://localhost:8000/tasks), mais également depuis la
+page [catégorie](http://localhost:8000/categories) en cliquant
 sur le nom d'une catégorie. La liste qui sera affichée sera la liste des tâches qui sont dans cette catégorie.
 
 ### Consulter les catégories
